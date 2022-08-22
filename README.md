@@ -20,3 +20,7 @@ https://github.com/
 ### Clone this repository
 
     git clone https://github.com/krisnye/game-00-pong
+
+### Open the local pong.html file in vscode
+
+Right click file in vscode explorer (left hand side) and open Live Server (install if needed).
