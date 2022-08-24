@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Pong</title>
+    </head>
+    <body>
+        <p>
+            Hello Pong 2.0
+        </p>
+        <!-- Create a Canvas Element -->
+        <canvas width="200" height="200" style="background:beige;"></canvas>
+    </body>
+    <script>
+        //  get the canvas as a javascript object
+        let canvas = document.querySelector("canvas");
+        //  get a 2d rendering context for drawing to the canvas.
+        let context = canvas.getContext("2d");
+
+        //  model our game data with objects here
+        let ball = { x: 10, y: 10 };
+
+        //  this function calls update and render once per frame.
+        function runSingleFrame() {
+            update();
+            render();
+            //  request the next animation frame to call this same function.
+            requestAnimationFrame(runSingleFrame);
+        }
+
+        function update() {
+            //  move the ball based upon it's velocity.
+            ball.x = ball.x + 0.1;
+            ball.y = ball.y + 1.0;
+        }
+
+        function render() {
+            //  draw ball
+            context.fillStyle = "red";
+            context.fillRect(ball.x, ball.y, 20, 20);
+        }
+
+        //  run the first frame. after it will keep calling itself.
+        runSingleFrame();
+
+        //  TODO:
+        //  [ ] Clear the canvas each frame (lookup canvas API)
+        //  [ ] Instead of "hard-coding" the balls motion, can you store it's velocity on the ball object?
+        //  [ ] Make the ball bounce off of bottom and top walls.
+        //  [ ] Make the ball bounce off of the left and right walls.
+        //  Advanced (None of this is actually needed for pong, just for fun):
+        //  [ ] Add more balls.
+        //  [ ] Give each ball a different color.
+        //  [ ] Give each ball a different size.
+        //  [ ] Use an `Array` to store your balls: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+        //  [ ] Make a function to add a random ball. Use `Math.random` https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+        //  Expert:
+        //  [ ] Add gravitational acceleration to each ball: https://www.khanacademy.org/science/physics/one-dimensional-motion/acceleration-tutorial/a/acceleration-article        
+        //  [ ] Make the balls collide with each other.
+
+    </script>
+</html>
